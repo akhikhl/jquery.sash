@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>This is document</title>
+    <link rel="stylesheet" type="text/css" href="jquery-ui-1.10.3/css/smoothness/jquery-ui-1.10.3.custom.css">
+    <link rel="stylesheet" type="text/css" href="jquery.sash.css">
+    <style>    
+      body, input, button, th, td, 
+      .ui-widget, .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button, 
+      .ui-tabs-panel, .ui-tabs-panel input, .ui-tabs-panel select, .ui-tabs-panel textarea, .ui-tabs-panel button { 
+        font-size: 9pt; 
+      }
+      
+      .testContainer { 
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      .testButtonBar { 
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 28px;
+        background-color: Gainsboro;
+        padding: 4px;
+      }
+      
+      .txtWidth1 {
+        margin-left: 16px;
+      }
+      .txtWidth2 {
+        margin-left: 16px;
+      }
+      
+      .testSash { 
+        position: absolute;
+        left: 0;
+        top: 36px;
+        right: 0;
+        bottom: 0;
+      }
+      
+      #mainSash { 
+        background-color: #FFFFDD;
+        border: 8px solid #AAFFAA;
+      }
+      #mainSash .sashSplitter {
+        background-color: DarkGray;
+        border: 4px solid #FFDDFF;
+        margin: 5px;
+        padding: 3px;
+        cursor: move;
+      }
+      
+      #leftPanel { 
+        background-color: white;
+        border: 8px solid #FFDDDD;
+        padding: 10px;
+        overflow: auto;
+      }
+      #middleSash { 
+        background-color: white;
+        border: 15px solid #DDDDFF;
+        padding: 15px;
+        overflow: auto;
+      }
+      #middleTopPanel { 
+        border: 8px solid #00DDDD;
+        padding: 10px;
+        overflow: auto;
+      }
+      #middleBottomPanel { 
+        border: 15px solid #DDDD00;
+        padding: 20px;
+        overflow: auto;
+      }
+      #rightPanel { 
+        background-color: white;
+        border: 8px solid #FFDDDD;
+        padding: 10px;
+        overflow: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="testContainer">
+      <div class="testButtonBar">
+        <input class="txtRatio" type="text" size="5" value="0.5"></input>
+        <button class="btnSetRatio">set ratio</button>
+        <input class="txtWidth1" type="text" size="5" value="200"></input>
+        <button class="btnSetWidth1">set width1</button>
+        <input class="txtWidth2" type="text" size="5" value="200"></input>
+        <button class="btnSetWidth2">set width2</button>
+        <input class="chkOrientation" type="checkbox" checked="true">Horizontal</input>
+        <input class="chkVisible1" type="checkbox" checked="true">Visible1</input>
+        <input class="chkVisible2" type="checkbox" checked="true">Visible2</input>
+      </div>
+      <div id="mainSash" class="testSash">
+        <div id="leftPanel" class="testOutput">Left panel</div>        
+        <div id="rightContainer" class="testContainer">
+          <div class="testButtonBar">
+            <input class="txtRatio" type="text" size="5" value="0.5"></input>
+            <button class="btnSetRatio">set ratio</button>
+            <input class="txtWidth1" type="text" size="5" value="200"></input>
+            <button class="btnSetWidth1">set width1</button>
+            <input class="txtWidth2" type="text" size="5" value="200"></input>
+            <button class="btnSetWidth2">set width2</button>
+            <input class="chkOrientation" type="checkbox" checked="true">Horizontal</input>
+            <input class="chkVisible1" type="checkbox" checked="true">Visible1</input>
+            <input class="chkVisible2" type="checkbox" checked="true">Visible2</input>
+          </div>        
+          <div id="rightSash" class="testSash">          
+            <div id="middleContainer" class="testContainer">
+              <div class="testButtonBar">
+                <input class="txtRatio" type="text" size="5" value="0.5"></input>
+                <button class="btnSetRatio">set ratio</button>
+                <input class="txtWidth1" type="text" size="5" value="200"></input>
+                <button class="btnSetWidth1">set width1</button>
+                <input class="txtWidth2" type="text" size="5" value="200"></input>
+                <button class="btnSetWidth2">set width2</button>
+                <input class="chkOrientation" type="checkbox" checked="true">Horizontal</input>
+                <input class="chkVisible1" type="checkbox" checked="true">Visible1</input>
+                <input class="chkVisible2" type="checkbox" checked="true">Visible2</input>
+              </div>        
+              <div id="middleSash" class="testSash">          
+                <div id="middleTopPanel" class="testOutput">Middle top panel</div>
+                <div id="middleBottomPanel">Middle bottom panel</div>
+              </div>
+            </div>
+            <div id="rightPanel" class="testOutput">Right panel</div>
+          </div>
+        <div>
+      </div>
+    <div>
+  </body>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://raw.github.com/cowboy/jquery-resize/master/jquery.ba-resize.min.js"></script>
+  <script type="text/javascript" src="jquery.sash.js"></script>
+  <script type="text/javascript">
+    jQuery.noConflict();
+    jQuery(function($) {
+    
+      $("#mainSash").on("sashMoved", function(event, info) {
+        var msg = "ratio=" + Number(info.ratio).toFixed(2) + ", width1=" + info.width1 + ", width2=" + info.width2;
+        var container = $(event.target).closest(".testContainer");
+        var buttonBar = container.children(".testButtonBar");
+        var sash = container.children(".testSash");
+        sash.children(".testOutput").append($("<div></div>").text(msg));
+        buttonBar.find(".chkOrientation").prop("checked", sash.sash("orientation") == "horizontal");
+        buttonBar.find(".chkVisible1").prop("checked", sash.sash("visible1"));
+        buttonBar.find(".chkVisible2").prop("checked", sash.sash("visible2"));
+      });
+      
+      $("#mainSash").sash({ orientation: "horizontal", width1: 200, content1: "#leftPanel", content2: "#rightContainer" });
+      $("#rightSash").sash({ orientation: "horizontal", mirror: true, width2: 200, content1: "#middleContainer", content2: "#rightPanel" });
+      $("#middleSash").sash({ orientation: "vertical", ratio: 0.5, content1: "#middleTopPanel", content2: "#middleBottomPanel" });
+      
+      $(".btnSetRatio").click(function() {
+        var container = $(this).closest(".testContainer");
+        var buttonBar = container.children(".testButtonBar");
+        var sash = container.children(".testSash");
+        sash.sash("ratio", buttonBar.find(".txtRatio").val());
+      });
+      $(".btnSetWidth1").click(function() {
+        var container = $(this).closest(".testContainer");
+        var buttonBar = container.children(".testButtonBar");
+        var sash = container.children(".testSash");
+        sash.sash("width1", buttonBar.find(".txtWidth1").val());
+      });
+      $(".btnSetWidth2").click(function() {
+        var container = $(this).closest(".testContainer");
+        var buttonBar = container.children(".testButtonBar");
+        var sash = container.children(".testSash");
+        sash.sash("width2", buttonBar.find(".txtWidth2").val());
+      });
+      $(".chkOrientation").click(function() {
+        var container = $(this).closest(".testContainer");
+        var sash = container.children(".testSash");
+        sash.sash("orientation", "toggle");
+      });
+      $(".chkVisible1").click(function() {
+        var container = $(this).closest(".testContainer");
+        var sash = container.children(".testSash");
+        sash.sash("visible1", "toggle");
+      });
+      $(".chkVisible2").click(function() {
+        var container = $(this).closest(".testContainer");
+        var sash = container.children(".testSash");
+        sash.sash("visible2", "toggle");
+      });
+    });
+  </script>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>This is document</title>
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="jquery.sash.css">
+    <style>
+      #topbar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        height: 50px;
+        border-bottom: 1px solid Gainsboro;
+      }
+      #main {
+        position: absolute;
+        left: 0;
+        top: 51px;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="topbar">This is simplest example of using jquery sash plugin. Please, drag gray bar to left and right with mouse.</div>
+    <div id="main">
+      <div id="leftPanel">left panel</div>
+      <div id="rightPanel">right panel</div>
+    </div>
+  </body>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://raw.github.com/cowboy/jquery-resize/master/jquery.ba-resize.min.js"></script>
+  <script type="text/javascript" src="jquery.sash.js"></script>
+  <script type="text/javascript">
+    jQuery.noConflict();
+    jQuery(function($) {
+      $("#main").sash({ content1: "#leftPanel", content2: "#rightPanel" });
+    });
+  </script>
+</html>

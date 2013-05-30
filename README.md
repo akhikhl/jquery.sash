@@ -137,3 +137,11 @@ This allows to implement (completely complex coding) the following layout:
 
 where, on window-resize, leftmost and rightmost panels "stick" to left and right sides respectively, 
 and middle panel fills the rest space.
+
+##Copyright and License
+
+Copyright 2013 (c) Andrey Hihlovskiy
+
+All versions, present and past, of jQuery Sash Plugin are licensed under MIT license:
+
+* [MIT](http://opensource.org/licenses/MIT)

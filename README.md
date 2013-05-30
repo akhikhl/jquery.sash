@@ -58,7 +58,7 @@ Simplest usage of jQuery Sash Plugin:
 **maxWidth2** - positive integer number, represents maximal width of right/bottom panel.
 
 **mirror** - boolean, default is false. Represents the behavior on window-resize event. 
-See more on [mirror behavior here](#mirrorBehavior).
+See more on [mirror behavior here](#mirror-behavior).
 
 ###Functions
 

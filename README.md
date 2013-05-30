@@ -57,7 +57,8 @@ Simplest usage of jQuery Sash Plugin:
 
 **maxWidth2** - positive integer number, represents maximal width of right/bottom panel.
 
-**mirror** - boolean, default is false. Represents the behavior on window-resize event.
+**mirror** - boolean, default is false. Represents the behavior on window-resize event. 
+See more on [mirror behavior here](#mirrorBehavior).
 
 ###Functions
 
@@ -109,3 +110,30 @@ $("sashDiv").sash("width2" [, newValue])
 ```
 gets/sets the width of right/bottom panel. Must be positive integer number. 
 Note that sash automatically adjusts the value to minRatio/maxRatio/minWidth1/maxWidth1/minWidth2/maxWidth2.
+
+###Mirror behavior<a id="mirrorBehavior"></a>
+
+jQuery Sash Plugin supports boolean property "mirror". 
+
+When mirror=false (the default), sash behaves "normal": on window-resize event left panel stays fixed, 
+right panel adjusts it's size. 
+
+When mirror=true, then the behavior of sash is "mirrored", that means: on window-resize right panel stays fixed 
+and left panel adjusts it's size. 
+
+Similar "mirroring" applies to vertical sash. 
+
+This allows to implement (completely complex coding) the following layout:
+
+```
++--------+---------------------+---------+
+|        |                     |         |
+|        |                     |         |
+|        |                     |         |
+|        |                     |         |
+|        |                     |         |
++--------+---------------------+---------+
+```
+
+where, on window-resize, leftmost and rightmost panels "stick" to left and right sides respectively, 
+and middle panel fills the rest space.

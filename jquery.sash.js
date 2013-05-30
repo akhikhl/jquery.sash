@@ -1,3 +1,22 @@
+/**
+ * jquery.sash.js
+ *
+ * jQuery Sash Plugin implements so-called sash element: layout with two panels, 
+ * divided with thin draggable bar. Sash can be vertical or horizontal, 
+ * accurately works with margins, paddings, borders. Nested sash elements are supported.
+ * Written by Andrey Hihlovskiy (akhikhl AT gmail DOT com).
+ * Licensed under the MIT (http://opensource.org/licenses/MIT).
+ * Date: 30.05.2013
+ *
+ * @author Andrey Hihlovskiy
+ * @version 1.0.0
+ * @requires jQuery v1.7 or later
+ * @requires jQuery UI v1.7 or later
+ * @requires jQuery resize plugin v1.1 or later
+ *
+ * https://github.com/akhikhl/jquery.sash
+ *
+ **/
 jQuery(function($) {
 
   function Context(sash, options) {

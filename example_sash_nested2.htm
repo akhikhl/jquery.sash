@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <title>More complex nested sash example</title>
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="jquery.sash.css">
+    <style>
+      #example, #example input, #example td {
+        font-face: Verdana, Arial, sans-serif;
+        font-size: 10pt;
+      }
+      
+      #example a.seeAlso {
+        color: DarkBlue;
+        font-weight: bold;
+        margin: 0 8px 0 0;
+        text-decoration: none;        
+      }
+    
+      #topPanel {
+        background-color: Gainsboro;
+        height: 80px;
+        left: 0;
+        top: 0;
+        padding: 0 0 0 8px;
+        position: absolute;
+        right: 0;
+      }
+      
+      #mainPanel {
+        bottom: 36px;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 80px;
+      }
+      
+      #bottomPanel {
+        background-color: Gainsboro;
+        bottom: 0;
+        height: 28px;
+        left: 0;
+        padding: 8px 0 0 8px;
+        position: absolute;
+        right: 0;
+      }
+      
+      #leftPanel, #centerTopPanel, #centerMiddlePanel, #centerBottomPanel, #rightPanel {
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="example">
+      <div id="topPanel">
+        <h3>More complex nested sash example</h3>
+        Drag gray bars to left and right, top and bottom, see how it works.<br>
+      </div>
+      <div id="mainPanel">
+        <div id="leftPanel">left panel</div>
+        <div id="rightContainer">
+          <div id="centerContainer">
+            <div id="centerTopPanel">center top panel</div>
+            <div id="centerMiddleContainer">
+              <div id="centerMiddlePanel">center middle panel</div>
+              <div id="centerBottomPanel">center bottom panel</div>
+            </div>
+          </div>
+          <div id="rightPanel">right panel</div>
+        </div>
+      </div>
+      <div id="bottomPanel">
+        See also: 
+          <a class="seeAlso" href="example_sash.htm">simple sash</a>
+          <a class="seeAlso" href="example_sash_nested.htm">nested sash</a>
+          <a class="seeAlso" href="example_sash_api.htm">jQuery Sash API functions at work</a>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script type="text/javascript" src="https://raw.github.com/cowboy/jquery-resize/master/jquery.ba-resize.min.js"></script>
+  <script type="text/javascript" src="jquery.sash.js"></script>
+  <script type="text/javascript">
+    jQuery(function($) {
+      $("#mainPanel").sash({ content1: "#leftPanel", content2: "#rightContainer", ratio: 0.333 });
+      $("#rightContainer").sash({ content1: "#centerContainer", content2: "#rightPanel", ratio: 0.5, mirror: true });
+      $("#centerContainer").sash({ content1: "#centerTopPanel", content2: "#centerMiddleContainer", orientation: "vertical", ratio: 0.333 });
+      $("#centerMiddleContainer").sash({ content1: "#centerMiddlePanel", content2: "#centerBottomPanel", orientation: "vertical", ratio: 0.5, mirror: true });
+    });
+  </script>
+</html>

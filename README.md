@@ -5,7 +5,7 @@
 jQuery Sash Plugin implements so-called sash element: layout with two panels, divided with thin draggable bar. 
 Sash can be vertical or horizontal, accurately works with margins, paddings, borders. Nested sash elements are supported.
 
-See [online example here](https://dl.dropboxusercontent.com/u/15089387/js/jquery.sash/example.htm)
+See [online example here](https://dl.dropboxusercontent.com/u/15089387/js/jquery.sash/example_sash.htm)
 
 ##API
 

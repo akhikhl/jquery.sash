@@ -123,7 +123,7 @@ and left panel adjusts it's size.
 
 Similar "mirroring" applies to vertical sash. 
 
-This allows to implement (completely complex coding) the following layout:
+This allows to implement (without complex coding) the following layout:
 
 ```
 +--------+---------------------+---------+
